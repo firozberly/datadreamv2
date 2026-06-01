@@ -1,3 +1,15 @@
+:root {
+  color: #050505;
+  background: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -6,28 +18,343 @@ body,
 }
 
 body {
-  font-family: Inter, system-ui, sans-serif;
-  line-height: 1.5;
-  background: #0b1220;
-  color: #f8f9fa;
+  min-width: 320px;
+  background: #ffffff;
 }
 
-.app {
-  display: flex;
-  flex-direction: column;
+button,
+input,
+audio {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: #b5b5b5;
+  cursor: not-allowed;
+}
+
+.shell {
   min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 0 28px;
+  background: #fff;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  border: 3px solid #050505;
+  border-top: 0;
+  border-radius: 0 0 18px 18px;
+  overflow: hidden;
+}
+
+.hero__copy,
+.status-card {
+  min-height: 210px;
+  padding: clamp(24px, 3vw, 42px);
+}
+
+.hero__copy {
+  border-right: 3px solid #050505;
+}
+
+.eyebrow {
+  display: none;
 }
 
 h1 {
-  margin: 0 0 1rem;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin: 0 0 18px;
+  font-size: clamp(4.5rem, 8vw, 8.4rem);
+  line-height: 0.82;
+  letter-spacing: -0.09em;
+  font-weight: 700;
 }
 
-p {
-  margin: 0.5rem 0;
-  max-width: 32rem;
+.hero p,
+.muted {
+  max-width: 1180px;
+  margin: 0;
+  color: #575757;
+  font-size: clamp(1.1rem, 1.55vw, 1.65rem);
+  line-height: 1.32;
+}
+
+.status-card {
+  display: grid;
+  align-content: space-between;
+  gap: 16px;
+  background: #fff;
+}
+
+.status-card span,
+.status-card small {
+  font-size: 1.35rem;
+}
+
+.status-card strong {
+  font-size: clamp(1.7rem, 2vw, 2.3rem);
+  line-height: 1;
+}
+
+.status-card small {
+  color: #5f5f5f;
+  line-height: 1.2;
+}
+
+.workspace {
+  padding: clamp(18px, 3vw, 32px);
+}
+
+.stack {
+  display: grid;
+  gap: 30px;
+}
+
+.panel {
+  border: 3px solid #050505;
+  background: #fff;
+}
+
+.panel__head {
+  padding: 13px 24px 12px;
+  background: #050505;
+  color: #fff;
+  font-size: 1.28rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.panel__body {
+  padding: 20px 24px 24px;
+}
+
+.dropzone {
+  display: grid;
+  width: 100%;
+  min-height: 118px;
+  place-items: center;
+  border: 3px dashed #050505;
+  background: #fff;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.4vw, 1.55rem);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.dropzone:hover,
+.dropzone--active {
+  background: #050505;
+  color: #fff;
+  transform: translate(-3px, -3px);
+}
+
+.audio {
+  width: 100%;
+  margin-top: 16px;
+  filter: grayscale(1) contrast(1.3);
+}
+
+.outline-button,
+.control-block button {
+  width: 100%;
+  min-height: 62px;
+  border: 3px solid #050505;
+  background: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.outline-button {
+  margin-top: 18px;
+  border-color: #bcbcbc;
+  color: #b5b5b5;
+}
+
+.outline-button:not(:disabled) {
+  border-color: #050505;
+  color: #050505;
+}
+
+.outline-button:not(:disabled):hover,
+.control-block button:hover,
+.control-block button.selected {
+  background: #050505;
+  color: #fff;
+}
+
+.control-block {
+  display: grid;
+  gap: 14px;
+}
+
+.control-block > label,
+.range-row span {
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.strip-label {
+  border: 3px solid #050505;
+  padding: 11px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.range-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 18px;
+  align-items: center;
+}
+
+.range-row output {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.range-row input {
+  grid-column: 1 / -1;
+  width: 100%;
+  accent-color: #07101f;
+}
+
+input[type='range'] {
+  appearance: none;
+  height: 11px;
+  border-radius: 99px;
+  background: #d3d6da;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #9aa0a8;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #9aa0a8;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.reset {
+  margin-top: 8px;
+}
+
+.stage {
+  margin-top: 34px;
+  padding: 22px;
+  border: 3px solid #050505;
+  border-radius: 0 0 20px 20px;
+  background-color: #ffe83b;
+  background-image: radial-gradient(circle, #fff 0 2px, transparent 2.4px), repeating-linear-gradient(125deg, transparent 0 25px, rgb(255 255 255 / 60%) 26px 28px, transparent 29px 52px);
+  background-size: 24px 24px, 58px 58px;
+}
+
+.stage__bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 14px;
+  background: #050505;
+  color: #ffe83b;
+  font-size: clamp(1rem, 1.7vw, 1.55rem);
+  font-weight: 700;
+}
+
+.stage canvas {
+  display: block;
+  width: 100%;
+  height: min(54vw, 680px);
+  min-height: 420px;
+  border: 6px solid #050505;
+  border-top: 0;
+  background: #ffe83b;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 36px 0;
+  font-size: clamp(1rem, 1.4vw, 1.35rem);
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__copy {
+    border-right: 0;
+    border-bottom: 3px solid #050505;
+  }
+
+  .status-card {
+    min-height: auto;
+  }
+
+  .style-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .style-grid button:first-child {
+    grid-column: 1 / -1;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 3.8rem;
+  }
+
+  .workspace,
+  .panel__body,
+  .hero__copy,
+  .status-card {
+    padding: 18px;
+  }
+
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stage {
+    padding: 12px;
+  }
+
+  .stage canvas {
+    min-height: 360px;
+  }
 }

@@ -1,2 +1,5 @@
 const { contextBridge } = require('electron');
-contextBridge.exposeInMainWorld('studio', { ping: () => 'pong' });
+
+contextBridge.exposeInMainWorld('gridSignal', {
+  ping: () => 'GRID/SIGNAL'
+});
