@@ -9,20 +9,6 @@ GRID/SIGNAL is an offline-first data-driven audio visualizer. Drop in a CSV/XLS/
 3. Tune style, density, shape mix, rotation, reactivity, scale, glitch, trails, and palette.
 4. Export short WebM clips from the in-browser canvas recorder, or screen-record longer sets with OBS/macOS recording.
 
-## Development
-
-```bash
-npm install
-npm run dev
-```
-
-## Build
-
-```bash
-npm run build
-```
-
-
 ## Deploying purely on Vercel
 
 You do **not** need to run `npm install` or `npm run build` on your Mac to deploy the web version. Push this repository to GitHub, import the repository in Vercel, and let Vercel run the install and build in its cloud builder.
@@ -37,3 +23,18 @@ Recommended Vercel project settings if you prefer the dashboard UI:
 - Output Directory: `dist`
 
 Desktop-only Electron packages are marked as optional dependencies so Vercel can skip them during the web build while local desktop packaging can still install them when needed.
+
+## Optional local development
+
+These commands are only for machines that can run the Node toolchain locally. They are not required for Vercel deployment.
+
+```bash
+npm install
+npm run dev
+```
+
+## Optional local build
+
+```bash
+npm run build
+```
