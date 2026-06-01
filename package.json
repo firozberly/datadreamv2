@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "main": "electron/main.js",
-  "description": "Offline macOS app for data-driven audio-reactive visuals",
-  "author": "DataDream Studio",
+  "description": "Offline brutalist data-driven audio visualizer",
+  "author": "GRID/SIGNAL",
   "license": "MIT",
   "scripts": {
     "dev": "concurrently \"vite\" \"wait-on tcp:5173 && electron .\"",
@@ -21,7 +21,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "three": "^0.167.0",
-    "xlsx": "^0.20.0"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
@@ -31,12 +31,12 @@
     "concurrently": "^8.2.0",
     "electron-builder": "^24.8.0",
     "typescript": "^5.7.0",
-    "vite": "^5.6.0",
+    "vite": "^5.4.20",
     "wait-on": "^7.0.2"
   },
   "build": {
     "appId": "com.datadream.studio",
-    "productName": "DataDream Studio",
+    "productName": "GRID SIGNAL",
     "files": [
       "dist/**/*",
       "electron/**/*",
@@ -44,12 +44,14 @@
       "package.json"
     ],
     "mac": {
-      "target": ["dmg"],
+      "target": [
+        "dmg"
+      ],
       "category": "public.app-category.graphics-design",
       "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "dmg": {
-      "title": "DataDream Studio Installer"
+      "title": "GRID SIGNAL Installer"
     }
   }
 }
